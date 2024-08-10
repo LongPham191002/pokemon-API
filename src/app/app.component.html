@@ -1,0 +1,23 @@
+<div class="parent">
+  @if ((isLoadingList$|async)) {
+    <mat-spinner></mat-spinner>
+  }
+  @for ((pokemon of pokemonDetailList$|async); track $index) {
+    <mat-card class="example-card" appearance="outlined">
+      <mat-card-header>
+        <img mat-card-avatar class="example-header-image" [src]="pokemon.sprites.front_default" alt="avatar"/>
+        <mat-card-title>{{ pokemon.name }}</mat-card-title>
+        <mat-card-subtitle>{{ pokemon.base_experience }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="pokemon.sprites.other.dream_world.front_default" alt="Photo of a Pokemon">
+      <mat-card-content>
+        <p>
+          Height: {{ pokemon.height }}
+          Weight: {{ pokemon.weight }}
+          Order: {{ pokemon.order }}
+        </p>
+      </mat-card-content>
+    </mat-card>
+
+  }
+</div>
